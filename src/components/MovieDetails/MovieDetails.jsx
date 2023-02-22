@@ -46,8 +46,8 @@ const MovieDetails = () => {
       {loading ? (
         'Loading...'
       ) : (
-        <>
-          <div className={css.imgWrap}>
+        <div className={css.container}>
+          <div className={css.info_wrap}>
             {data.poster_path ? (
               <img
                 className={css.img}
@@ -58,19 +58,20 @@ const MovieDetails = () => {
               'NO Image'
             )}
 
-            <div className={css.descrWrap}>
+            <div>
               <h1>
                 {data.original_title} ({getYear(data.release_date)})
               </h1>
-              <p className={css.descrTitle}>
+              <p className={css.description}>
                 User Score: {~~(data.vote_average * 10)}%
               </p>
-              <p className={css.descrTitle}>Overview</p>
+              <p className={css.description}>Overview</p>
               <p>{data.overview}</p>
-              <p className={css.descrTitle}>Genres</p>
+              <p className={css.description}>Genres</p>
               <p>{getGenres(data.genres)}</p>
             </div>
           </div>
+
           <div>
             <ul className={css.btnList}>
               <li>
@@ -88,7 +89,7 @@ const MovieDetails = () => {
           <Suspense fallback={<div>Loading subpage...</div>}>
             <Outlet />
           </Suspense>
-        </>
+        </div>
       )}
     </>
   );

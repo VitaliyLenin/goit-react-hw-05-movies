@@ -61,15 +61,15 @@ const Movies = () => {
   return (
     <>
       <div className={css.wrap}>
-        <h2 className={css.title}>Search movies:</h2>
-        <form onSubmit={handleSubmit} className={css.movieForm}>
+        <h2 className={css.title}>Search movie by name:</h2>
+        <form onSubmit={handleSubmit} className={css.movie_form}>
           <input
             value={inputValue}
             onChange={handleChange}
             name="search"
             type="text"
             placeholder="Type here"
-            className={css.movieInput}
+            className={css.movie_input}
           />
           <button type="submit" className={css.btn}>
             Search
@@ -82,8 +82,12 @@ const Movies = () => {
             'Loading...'
           ) : movies?.length > 0 ? (
             movies.map(({ title, id }) => (
-              <li key={id} className={css.listItem}>
-                <Link state={{ from: location }} to={`/movies/${id}`}>
+              <li key={id} className={css.list_item}>
+                <Link
+                  state={{ from: location }}
+                  to={`/movies/${id}`}
+                  className={css.movie_link}
+                >
                   {title}
                 </Link>
               </li>
