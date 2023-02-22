@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   gap: 30px;
+  background-color: gray;
+  border-bottom: 3px solid;
 }
 
 .menu_nav {
@@ -12,5 +14,4 @@
 
 .menu_nav:global(.active) {
   font-weight: bold;
-  text-decoration-line: underline;
 }
